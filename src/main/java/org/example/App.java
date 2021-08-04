@@ -9,8 +9,8 @@ public class App extends Application {
     private final double WIDTH = 720;
     private final double HEIGHT = 900;
 
-    private final int BLOCK_ROWS = 10;
-    private final int BLOCK_COLS = 10;
+    private final int BLOCK_ROWS = 8;
+    private final int BLOCK_COLS = 8;
 
     @Override
     public void start(Stage stage) {
@@ -36,9 +36,5 @@ public class App extends Application {
 
     public static void main(String[] args) {
         launch();
-        // Vector a = new Vector(1, 1);
-        // Vector b = new Vector(2, 3);
-
-        // System.out.println(Vector.projection(a, b));
     }
 }
