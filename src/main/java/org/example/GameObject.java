@@ -33,8 +33,16 @@ public class GameObject {
         this.enabled = true;
     }
 
+    public void move() {
+        position = Vector.add(position, velocity);
+    }
+
     public Vector getPosition() {
         return position;
+    }
+
+    public Vector getVelocity() {
+        return velocity;
     }
 
     public Vector getSize() {
@@ -45,10 +53,20 @@ public class GameObject {
         return color;
     }
 
+    public Vector getMinBound() {
+        return new Vector(position.x, position.y);
+    }
+
+    public Vector getMaxBound() {
+        return new Vector(position.x + size.x, position.y + size.y);
+    }
+
     public void addAttribute(String name, Object attribute) {
         attributes.put(name, attribute);
     }
 
+    // Don't do this...ever probably.
+    @SuppressWarnings("unchecked")
     public <T> T getAttribute(String name) {
         return (T) attributes.get(name);
     }

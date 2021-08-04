@@ -1,4 +1,4 @@
 module org.example {
-    requires javafx.controls;
+    requires transitive javafx.controls;
     exports org.example;
 }

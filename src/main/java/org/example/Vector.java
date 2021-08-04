@@ -14,17 +14,38 @@ public class Vector {
         this.y = y;
     }
 
-    public void add(Vector other) {
-        x += other.x;
-        y += other.y;
+    /**
+     * @return a + b
+     */
+    public static Vector add(Vector a, Vector b) {
+        return new Vector(a.x + b.x, a.y + b.y);
     }
 
-    public void subtract(Vector other) {
-        x -= other.x;
-        y -= other.y;
+    /**
+     * @return a - b
+     */
+    public static Vector subtract(Vector a, Vector b) {
+        return new Vector(a.x - b.x, a.y - b.y);
     }
 
-    public double dot(Vector other) {
-        return x * other.x + y * other.y;
+    public static double dot(Vector a, Vector b) {
+        return a.x * b.x + a.y * b.y;
     }
+
+    public static Vector scalarMultiply(double s, Vector v) {
+        return new Vector(s * v.x, s * v.y);
+    }
+
+    /**
+     * @return The projection of original onto axis
+     */
+    public static Vector projection(Vector axis, Vector original) {
+        return scalarMultiply(dot(axis, original) / (axis.x * axis.x + axis.y * axis.y), axis);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("{ %f, %f }\n", x, y);
+    }
+
 }
